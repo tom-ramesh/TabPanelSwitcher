@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "target": "ES5",
+    "strict": true,
+    "module": "ES6",
+    "sourceMap": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "noEmitOnError": false
+  },
+  "include": ["./src/**/*", "./declaration.d.ts"],
+  "exclude": ["node_modules"]
+}

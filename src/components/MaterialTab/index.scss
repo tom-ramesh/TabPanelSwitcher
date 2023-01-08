@@ -1,0 +1,122 @@
+$base-color: #008dff;
+
+.materialHorizontalTabs {
+  display: flex;
+  align-items: center;
+
+  &__tabs-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    background-color: #f1f1f1;
+
+    & > div:last-of-type {
+      border-right: 1px solid #b6b6b6;
+    }
+  }
+
+  &__tab,
+  &__tab-selected {
+    cursor: pointer;
+    padding: 0.5rem 2.5rem;
+    width: 100%;
+    background-color: #fff;
+    font-weight: 600;
+    text-align: center;
+    align-items: center;
+    border-left: 1px solid #b6b6b6;
+
+    & > label {
+      cursor: pointer;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &__tab-selected {
+    position: relative;
+    font-weight: 700;
+    background-color: #fff;
+
+    & > label {
+      position: relative;
+      color: $base-color;
+
+      &::after {
+        position: absolute;
+        content: "";
+        width: 10px;
+        height: 10px;
+        top: 50%;
+        left: -15px;
+        transform: translateY(-5px);
+        border-radius: 50%;
+        background-color: $base-color;
+      }
+    }
+  }
+
+  &__shortTab {
+    min-width: max-content;
+    width: 200px;
+  }
+
+  &__icon-previous,
+  &__icon-next {
+    cursor: pointer;
+  }
+
+  &__icon-disabled {
+    cursor: not-allowed;
+  }
+
+  &__icon-previous,
+  &__icon-next,
+  &__icon-disabled {
+    padding: 0.5rem 1rem;
+    background-color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+
+    &:hover {
+      transform: scale(1.1) translateX(-5px);
+    }
+  }
+
+  &__icon-disabled {
+    background-color: #b6b6b6;
+
+    & > :first-child {
+      cursor: not-allowed;
+
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+
+  &__icon-next {
+    &:hover {
+      transform: translateX(5px);
+    }
+  }
+
+  &__indicator-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 5px;
+    width: 100%;
+
+    & > div {
+      background-color: $base-color;
+      height: 2px;
+      filter: blur(1px);
+    }
+  }
+
+  &__column-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
