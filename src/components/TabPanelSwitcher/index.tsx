@@ -1,6 +1,5 @@
 import React, { useMemo } from "react";
 import MaterialHorizontalTabs from "../MaterialTab";
-import RenderIf from "../RenderIf";
 
 export type TabType = {
   label: string;

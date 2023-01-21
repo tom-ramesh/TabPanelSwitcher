@@ -11,6 +11,8 @@ const MaterialHorizontalTabs: React.FC<PropType> = (props) => {
     tabPerView = 1,
   } = props;
 
+  const customStyles = { colorTheme: "" };
+
   const noOfTabs = requiredTabs.length;
 
   const [startIndex, setStartIndex] = useState(0);
@@ -105,54 +107,52 @@ const MaterialHorizontalTabs: React.FC<PropType> = (props) => {
   };
 
   return (
-    <div>
-      <div className="materialHorizontalTabs">
-        <div
-          className={`materialHorizontalTabs__icon-${
-            selectedIndex === 1 ? "disabled" : "previous"
-          }`}
-          onClick={handlePrevious}
-        >
-          {"<"}
-        </div>
-        <div className={"materialHorizontalTabs__column-container"}>
-          <div className={"materialHorizontalTabs__tabs-container"}>
-            {tabsToView.map((tabData: TabType, index: number) => (
-              <div
-                key={tabData?.id}
-                className={joinClass(
-                  `materialHorizontalTabs__${
-                    selectedTab?.id === tabData?.id ? "tab-selected" : "tab"
-                  }`,
-                  tabsToView.length < tabPerView
-                    ? "materialHorizontalTabs__shortTab"
-                    : ""
-                )}
-                onClick={() => {
-                  setSelectedTab(tabData);
-                  setSelectedIndex(startIndex + (index + 1));
-                }}
-              >
-                <label>{tabData.label}</label>
-              </div>
-            ))}
-          </div>
-          <div className={"materialHorizontalTabs__indicator-bar"}>
+    <div className="materialHorizontalTabs">
+      <div
+        className={`materialHorizontalTabs__icon-${
+          selectedIndex === 1 ? "disabled" : "previous"
+        }`}
+        onClick={handlePrevious}
+      >
+        Previous
+      </div>
+      <div className={"materialHorizontalTabs__column-container"}>
+        <div className={"materialHorizontalTabs__tabs-container"}>
+          {tabsToView.map((tabData: TabType, index: number) => (
             <div
-              style={{
-                width: `${(selectedIndex / noOfTabs) * 100}%`,
+              key={tabData?.id}
+              className={joinClass(
+                `materialHorizontalTabs__${
+                  selectedTab?.id === tabData?.id ? "tab-selected" : "tab"
+                }`,
+                tabsToView.length < tabPerView
+                  ? "materialHorizontalTabs__shortTab"
+                  : ""
+              )}
+              onClick={() => {
+                setSelectedTab(tabData);
+                setSelectedIndex(startIndex + (index + 1));
               }}
-            ></div>
-          </div>
+            >
+              <label>{tabData.label}</label>
+            </div>
+          ))}
         </div>
-        <div
-          className={`materialHorizontalTabs__icon-${
-            selectedIndex === noOfTabs ? "disabled" : "next"
-          }`}
-          onClick={handleNext}
-        >
-          {">"}
+        <div className={"materialHorizontalTabs__indicator-bar"}>
+          <div
+            style={{
+              width: `${(selectedIndex / noOfTabs) * 100}%`,
+            }}
+          ></div>
         </div>
+      </div>
+      <div
+        className={`materialHorizontalTabs__icon-${
+          selectedIndex === noOfTabs ? "disabled" : "next"
+        }`}
+        onClick={handleNext}
+      >
+        Next
       </div>
     </div>
   );

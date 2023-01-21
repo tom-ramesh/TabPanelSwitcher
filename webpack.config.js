@@ -7,7 +7,7 @@ module.exports = {
   output: { path: path.resolve(__dirname, "dist"), filename: "bundle.js" },
   target: "web",
   devServer: {
-    port: 3000,
+    port: 3001,
     static: ["./dist"],
     open: true,
     hot: true,

@@ -8,7 +8,6 @@ $base-color: #008dff;
     display: flex;
     justify-content: space-between;
     max-width: 100%;
-    background-color: #f1f1f1;
 
     & > div:last-of-type {
       border-right: 1px solid #b6b6b6;
@@ -18,18 +17,28 @@ $base-color: #008dff;
   &__tab,
   &__tab-selected {
     cursor: pointer;
+    margin: 0 8px;
     padding: 0.5rem 2.5rem;
     width: 100%;
     background-color: #fff;
+    font-size: 1.1rem;
     font-weight: 600;
     text-align: center;
     align-items: center;
     border-left: 1px solid #b6b6b6;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    transition: 0.2s transform ease-in-out;
+    border-radius: 4px;
 
     & > label {
       cursor: pointer;
       white-space: nowrap;
       text-overflow: ellipsis;
+    }
+
+    &:hover {
+      transform: scale(1.05);
     }
   }
 
@@ -37,6 +46,7 @@ $base-color: #008dff;
     position: relative;
     font-weight: 700;
     background-color: #fff;
+    transform: scale(1.05);
 
     & > label {
       position: relative;
@@ -64,27 +74,26 @@ $base-color: #008dff;
   &__icon-previous,
   &__icon-next {
     cursor: pointer;
-  }
 
-  &__icon-disabled {
-    cursor: not-allowed;
+    &:hover {
+      color: $base-color;
+      transform: translateX(-5px);
+    }
   }
 
   &__icon-previous,
   &__icon-next,
   &__icon-disabled {
-    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
     background-color: #fff;
-    font-size: 20px;
+    font-size: 1rem;
     font-weight: 600;
-
-    &:hover {
-      transform: scale(1.1) translateX(-5px);
-    }
+    transition: 0.2s transform ease-in-out;
   }
 
   &__icon-disabled {
-    background-color: #b6b6b6;
+    cursor: not-allowed;
+    color: #b6b6b6;
 
     & > :first-child {
       cursor: not-allowed;
